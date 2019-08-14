@@ -1,6 +1,6 @@
 # EXPRESS SWEATER WEATHER
 
-Express Sweater Weather provides six API endpoints to interact with:
+Express Sweater Weather is an API which provides the following endpoints to interact with:
 + [Create User Account](#create_user)
 + [User Login](#login)
 + [Forecast](#forecast)
