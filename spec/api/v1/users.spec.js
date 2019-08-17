@@ -3,7 +3,6 @@ var request = require("supertest");
 var app = require("../../../app");
 const User = require('../../../models').User
 
-
 describe("POST /api/v1/users path", () => {
 
   beforeAll(() => {
@@ -54,5 +53,30 @@ describe("POST /api/v1/users path", () => {
 
     expect(response.status).toBe(409);
     expect(response.body).toHaveProperty("error");
+  });
+});
+
+describe("POST /api/v1/sessions path", () => {
+
+  beforeAll(() => {
+    shell.exec('npx sequelize db:drop')
+    shell.exec('npx sequelize db:create')
+  });
+
+  beforeEach(() => {
+    shell.exec('npx sequelize db:migrate')
+  });
+
+  it("finds a new user and returns their api_key", async () => {
+    User.create({email: 'user1@example.com', passwordHash: 'password', apiKey: 'random', apiKeyActive: true})
+    const response = await request(app)
+    .post("/api/v1/sessions")
+    .send({
+      email: "user1@example.com",
+      password: "password"
+    });
+
+    expect(response.status).toBe(200);
+    expect(response.body).toHaveProperty("apiKey");
   });
 });
