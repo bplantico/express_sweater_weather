@@ -9,15 +9,22 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       email: {
+        allowNull: false,
+        isEmail: true,
+        unique: true,
         type: Sequelize.STRING
       },
-      password_digest: {
+      passwordHash: {
+        allowNull: false,
         type: Sequelize.STRING
       },
-      api_key: {
+      apiKey: {
+        allowNull: false,
+        unique: true,
         type: Sequelize.STRING
       },
-      api_key_active: {
+      apiKeyActive: {
+        defaultValue: true,
         type: Sequelize.BOOLEAN
       },
       createdAt: {

@@ -1,10 +1,30 @@
 var express = require('express');
 var router = express.Router();
+const uuidv4 = require('uuid/v4');
+const bcrypt = require('bcrypt');
+const User = require('../models').User
 
-/* POST users listing. */
+/* POST to create a user */
 router.post('/', function(req, res, next) {
-  console.log(res.body)
-  res.send('respond with a resource');
+  if (req.body.password == req.body.passwordConfirmation) {
+    User.create({
+      email: req.body.email,
+      passwordHash: bcrypt.hashSync(req.body.password, 14),
+      apiKey: uuidv4(),
+      apiKeyActive: true
+    })
+    .then(user => {
+      res.setHeader("Content-Type", "application/json");
+      res.status(201).send(JSON.stringify({apiKey: user.apiKey}));
+    })
+    .catch(error => {
+      res.setHeader("Content-Type", "application/json");
+      res.status(409).send(JSON.stringify({ error: error }));
+    });
+  } else {
+    res.setHeader("Content-Type", "application/json");
+    res.status(400).send(JSON.stringify({ message: "Please check that your passwords match." }));
+  };
 });
 
 module.exports = router;
