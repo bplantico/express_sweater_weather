@@ -41,12 +41,17 @@ describe("POST /api/v1/users path", () => {
   });
 
   it("doesn't create a new user if user already exists", async () => {
-    User.create({email: 'test@example.com', passwordHash: 'password', apiKey: 'random', apiKeyActive: true})
+    await User.create({
+      email: 'test99@example.com',
+      passwordHash: 'password',
+      apiKey: 'random99',
+      apiKeyActive: true
+    })
 
     const response = await request(app)
     .post("/api/v1/users")
     .send({
-      email: "test@example.com",
+      email: "test99@example.com",
       password: "password",
       passwordConfirmation: "password"
     });
