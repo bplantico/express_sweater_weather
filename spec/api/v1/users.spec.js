@@ -3,7 +3,7 @@ var request = require("supertest");
 var app = require("../../../app");
 const User = require('../../../models').User
 
-xdescribe("POST /api/v1/users path", () => {
+describe("POST /api/v1/users path", () => {
 
   beforeAll(() => {
     shell.exec('npx sequelize db:drop')
