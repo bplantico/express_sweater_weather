@@ -12,7 +12,7 @@ router.post('/', async (req, res) => {
     }
   })
   .then( user => {
-    if (user && bcrypt.compareSync(req.body.password, user.passwordHash)) {
+    if (user && _passwordsMatch(req.body.password, user.passwordHash)) {
       res.setHeader("Content-Type", "application/json");
       res.status(200).send(JSON.stringify({apiKey: user.apiKey}));
     } else {
@@ -25,5 +25,15 @@ router.post('/', async (req, res) => {
     res.status(500).send({error})
   });
 });
+
+const _passwordsMatch = function bcryptPasswords(sentPassword, savedPassword) {
+  if (bcrypt.compareSync(sentPassword, savedPassword)) {
+    return true
+  } else {
+    return false
+  }
+}
+
+
 
 module.exports = router;
