@@ -22,7 +22,7 @@ Accept: application/json
 {
   "email": "example@email.com",
   "password": "password"
-  "password_confirmation": "password"
+  "passwordConfirmation": "password"
 }
 ```
 Successful response:
