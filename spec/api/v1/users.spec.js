@@ -3,7 +3,6 @@ var request = require("supertest");
 var app = require("../../../app");
 const User = require('../../../models').User
 
-
 describe("POST /api/v1/users path", () => {
 
   beforeAll(() => {
