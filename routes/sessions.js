@@ -39,6 +39,4 @@ const _passwordsMatch = function bcryptPasswords(sentPassword, savedPassword) {
   }
 }
 
-
-
 module.exports = router;
