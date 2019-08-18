@@ -9,7 +9,7 @@ Express Sweater Weather is an API which provides the following endpoints to inte
 + [Delete a Favorite Location](#delete_favorite)
 
 # <a name="create_user"></a>Create User Account
-'https://the-express-sweater-weather.herokuapp.com/api/v1/users'
+`https://the-express-sweater-weather.herokuapp.com/api/v1/users`
 
 The users endpoint receives a POST request along with a body containing an `email` address, `password`, and `passwordConfirmation` . If the email address has not already been used to create an account, and the password and passwordConfirmation match, then a unique API key is returned.
 
