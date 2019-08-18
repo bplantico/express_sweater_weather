@@ -31,7 +31,7 @@ status: 201
 body:
 
 {
-  "api_key": "2dcf26f1-71af-4071-9060-24d49b6c86e4",
+  "apiKey": "2dcf26f1-71af-4071-9060-24d49b6c86e4",
 }
 ```
 # <a name="login"></a>Sessions Login
@@ -56,7 +56,7 @@ status: 200
 body:
 
 {
-  "api_key": "2dcf26f1-71af-4071-9060-24d49b6c86e4",
+  "apiKey": "2dcf26f1-71af-4071-9060-24d49b6c86e4",
 }
 ```
 # <a name="forecast"></a>Forecast
