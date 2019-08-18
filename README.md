@@ -2,7 +2,7 @@
 
 Express Sweater Weather is an API which provides the following endpoints to interact with:
 + [Create User Account](#create_user)
-+ [User Login](#login)
++ [User Sessions Login](#login)
 + [Forecast](#forecast)
 + [Favorite a Location](#favorite_a_location)
 + [List Favorite Locations](#list_favorites)
@@ -34,7 +34,7 @@ body:
   "apiKey": "2dcf26f1-71af-4071-9060-24d49b6c86e4",
 }
 ```
-# <a name="login"></a>Sessions Login
+# <a name="login"></a>User Sessions Login
 `https://the-express-sweater-weather.herokuapp.com/api/v1/sessions`
 
 The sessions endpoint receives a POST request along with a body containing an `email` address and `password`. If the email address and password credentials are correct for a registered user, then the user's API key is returned.
