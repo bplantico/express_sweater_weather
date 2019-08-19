@@ -30,12 +30,61 @@ describe("GET /api/v1/forecast path", () => {
     });
 
     expect(response.status).toBe(200);
-    expect(response.body).toHaveProperty("apiKey");
+    expect(Object.keys(response.body)).toEqual(["data"]);
+    expect(Object.keys(response.body["data"])).toEqual(["location", "currently", "hourly", "daily", "alerts"]);
+  });
+
+  it("doesn't send a forecast if API key invalid", async () => {
+    const user = await User.create({
+      email: "user_2@example.com",
+      passwordHash: bcrypt.hashSync("password", 14),
+      apiKey: "random_2",
+      apiKeyActive: true
+    });
+
+    const response = await request(app)
+    .get("/api/v1/forecast?location=denver,co")
+    .send({
+      apiKey: "wrong"
+    });
+
+    expect(response.status).toBe(401);
+    expect(Object.keys(response.body)).toEqual(["error"]);
+  });
+
+  it("doesn't send a forecast if API key missing", async () => {
+    const user = await User.create({
+      email: "user_3@example.com",
+      passwordHash: bcrypt.hashSync("password", 14),
+      apiKey: "random_3",
+      apiKeyActive: true
+    });
+
+    const response = await request(app)
+    .get("/api/v1/forecast?location=denver,co")
+    .send({
+      apiKey: null
+    });
+
+    expect(response.status).toBe(401);
+    expect(Object.keys(response.body)).toEqual(["error"]);
+  });
+
+  it("doesn't send a forecast if location param missing", async () => {
+    const user = await User.create({
+      email: "user_4@example.com",
+      passwordHash: bcrypt.hashSync("password", 14),
+      apiKey: "random_4",
+      apiKeyActive: true
+    });
+
+    const response = await request(app)
+    .get("/api/v1/forecast")
+    .send({
+      apiKey: user.apiKey
+    });
+
+    expect(response.status).toBe(401);
+    expect(Object.keys(response.body)).toEqual(["error"]);
   });
 });
-
-// .then(lat => coords["lat"])
-// .then(lng => coords["lng"])
-// .then(fetch(`https://api.darksky.net/forecast/${process.env.DARK_SKY_SECRET_KEY}/${lat},${lng}`))
-// .then(darkSkyRes => darkSkyRes.text())
-// .then( forecast => JSON.parse(body))
