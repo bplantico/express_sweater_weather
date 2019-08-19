@@ -2,7 +2,8 @@
   "name": "express-sweater-weather",
   "version": "0.0.0",
   "jest": {
-    "verbose": true
+    "verbose": true,
+    "collectCoverage": true
   },
   "private": true,
   "scripts": {
