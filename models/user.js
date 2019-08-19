@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
     apiKeyActive: DataTypes.BOOLEAN
   }, {});
   User.associate = function(models) {
-    // associations can be defined here
+    User.hasMany(models.FavoriteLocation, {as: 'favoriteLocations'})
   };
   return User;
 };
