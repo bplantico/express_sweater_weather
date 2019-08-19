@@ -8,6 +8,21 @@ Express Sweater Weather is an API which provides the following endpoints to inte
 + [List Favorite Locations](#list_favorites)
 + [Delete a Favorite Location](#delete_favorite)
 
+ExpressSweaterWeather is built with Node.js (version 10.16.2) and tested with Jest (version 24.8.0). It's not necessary to install and run the program on your local machine, as the application is deployed to Heroku and the endpoints outlined below can be accessed without running the application locally, however, if you're interested in working on the code base the following instructions will help you get started:
+
+Fork and/or clone this repository to your local machine.
+
+cd into the express_sweater_weather directory and run `npm install` from your command line.
+
+To set up the database, run `npx sequelize db:create` and `npx sequelize db:migrate`
+
+It will also be necessary to create a `.env` file to store personal API keys that you'll need to acquire from the following 3rd party API's. Please retrieve a GOOGLE_GEOCODE_API_KEY from https://developers.google.com/maps/documentation/geocoding/get-api-key and a DARK_SKY_SECRET_KEY from https://darksky.net/dev/register, then add both to your `.env` file in the following format:
+```
+DARK_SKY_SECRET_KEY=<paste your key here>
+GOOGLE_GEOCODE_API_KEY=<paste your key here>
+```
+You're ready to go! Please reach out if you have any other questions or concerns.
+
 # <a name="create_user"></a>Create User Account
 `https://the-express-sweater-weather.herokuapp.com/api/v1/users`
 
