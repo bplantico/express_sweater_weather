@@ -7,6 +7,7 @@ var bcrypt         = require('bcrypt');
 var indexRouter    = require('./routes/index');
 var usersRouter    = require('./routes/users');
 var sessionsRouter = require('./routes/sessions');
+var forecastRouter = require('./routes/forecast');
 
 var app = express();
 
@@ -19,5 +20,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/api/v1/users/', usersRouter);
 app.use('/api/v1/sessions/', sessionsRouter);
+app.use('/api/v1/forecast/', forecastRouter);
 
 module.exports = app;
