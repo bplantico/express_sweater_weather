@@ -8,6 +8,16 @@ Express Sweater Weather is an API which provides the following endpoints to inte
 + [List Favorite Locations](#list_favorites)
 + [Delete a Favorite Location](#delete_favorite)
 
+I built this API while in Module 4 at the Turing School of Software and Design in Denver, Colorado. A Rubyist, this was my first venture into Javascript.
+## Learning Goals
+The following learning goals were reached in the project:
++ Utilize a project board to create and track details for project completion
++ Practice written technical communication with concise and consistent git commits and clear pull requests
++ Clearly document Introduction, Initial Setup, How to Use, Known Issues, Running Tests, How to Contribute, Core Contributors, + Schema Design, and Tech Stack List
++ Implement testing in JavaScript
++ Familiarize self with mechanics of building an Express API
+
+### Configuration
 ExpressSweaterWeather is built with Node.js (version 10.16.2) and tested with Jest (version 24.8.0). It's not necessary to install and run the program on your local machine, as the application is deployed to Heroku and the endpoints outlined below can be accessed without running the application locally, however, if you're interested in working on the code base the following instructions will help you get started:
 
 Fork and/or clone this repository to your local machine.
