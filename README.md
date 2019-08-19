@@ -196,5 +196,33 @@ An example of a successful response:
 }
 ```
 # <a name="favorite_a_location"></a>Favorite a Location
+`https://the-express-sweater-weather.herokuapp.com/api/v1/favorites`
+
+The favorite location endpoint receives a POST containing a User's valid `apiKey` and a `location` in the body of the request and saves the location to the User's favorite locations.
+
+An example of a successful request:
+```
+POST https://the-express-sweater-weather.herokuapp.com/api/v1/favorites
+Content-Type: application/json
+Accept: application/json
+
+body:
+
+{
+  "location": "Denver, CO",
+  "api_key": "jgn983hy48thw9begh98h4539h4"
+}
+```
+An example of a successful response:
+```
+status: 200
+body:
+
+{
+  "data": "Denver, CO has been added to your favorites",
+}
+```
 # <a name="list_favorites"></a>List Favorite Locations
+Endpoint coming soon.
 # <a name="delete_favorite"></a>Delete a Favorite Location
+Endpoint coming soon.
